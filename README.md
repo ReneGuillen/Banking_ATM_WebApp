@@ -1,8 +1,7 @@
 # Banking-ATM-WebApp
 
 
-# ONLINE BANKING
-
+ONLINE BANKING
 It's a project aimed to provide features from a real banking system like having your own account, deposit, withdraw and more.
 
 Project was builded using HTML/CSS, JAVA/JSP, MYSQL.

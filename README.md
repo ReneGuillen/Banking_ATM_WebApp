@@ -11,4 +11,4 @@ to store/retrieve data and deploying full project to public test.
 
 You can look see a demo here: https://online-banking-atm.herokuapp.com/
 
-@ReneGuillen.
+@Rene Josue Guillen.

@@ -2,6 +2,7 @@ package simpleservlet;
 
 import java.text.DecimalFormat;
 
+//Class to make any type of transaction and removes code from main class.
 public class Transactions {
     private double balance = 0.00;
     private DecimalFormat limitDecimal = new DecimalFormat("0.00");

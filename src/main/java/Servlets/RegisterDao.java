@@ -9,6 +9,7 @@ public class RegisterDao {
     private String dbPassword = "d16cbee0";
     private String dbDriver = "com.mysql.cj.jdbc.Driver";
 
+    //Load jdbc driver to connect to the database.
     public void loadDriver(){
         try {
             Class.forName(dbDriver);
@@ -16,11 +17,13 @@ public class RegisterDao {
             e.printStackTrace();
         }
     }
-
+    
+    //Make a connection to the database.
     public Connection getConnection() throws SQLException {
         return DriverManager.getConnection(dbUrl, dbUsername, dbPassword);
     }
 
+    //Method to add a new member to the database with username, email and password.
     public void insert(Member member) throws SQLException, ClassNotFoundException {
         loadDriver();
         Connection connection = getConnection();
@@ -33,6 +36,7 @@ public class RegisterDao {
         ps.executeUpdate();
     }
 
+    //Method to get user's information from the database when loging in.
     public boolean retrieve(Member member) throws SQLException {
         loadDriver();
         Connection connection = getConnection();
@@ -50,6 +54,7 @@ public class RegisterDao {
         return false;
     }
 
+    //Method to show current user's balance in database.
     public String showBalance(String username) throws SQLException {
         loadDriver();
         Connection connection = getConnection();
@@ -62,6 +67,7 @@ public class RegisterDao {
 
     }
 
+    //Method to update the user's balace in the database.
     public void updateBalance(String username, String value) throws SQLException {
         loadDriver();
         Connection connection = getConnection();

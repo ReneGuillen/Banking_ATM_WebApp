@@ -11,13 +11,17 @@ import java.sql.SQLException;
 
 @WebServlet(name = "Register", urlPatterns = {"/register"})
 public class Register extends HttpServlet {
+    
+    //Post request to create a new user and add their information to the database.
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(isRequestEmpty(request)){
+            //Make sure all information required it's entered.
             request.setAttribute("message", "Unable to create account, Please make sure you enter all information required");
             RequestDispatcher requestDispatcher = request.getRequestDispatcher("signup.jsp");
             requestDispatcher.forward(request, response);
         }
         else {
+            //Add user to the database in case user doesn't exits.
             String userName = request.getParameter("username");
             String email = request.getParameter("email");
             String password = request.getParameter("password");
@@ -37,10 +41,12 @@ public class Register extends HttpServlet {
         }
     }
 
+    //Post request in case user exists and wants to change their information.
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
+    //Method to checks if all fields are entered.
     protected boolean isRequestEmpty(HttpServletRequest request){
         String user = request.getParameter("username");
         String email = request.getParameter("email");

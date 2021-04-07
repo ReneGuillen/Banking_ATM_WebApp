@@ -14,6 +14,7 @@ public class Servlet extends HttpServlet {
     protected RegisterDao registerDao = new RegisterDao();
     protected Transactions transactions = new Transactions();
 
+    //Post Method to make transaction and update user's information in the database.
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("userName");
         if(request.getParameter("option") != null) {
@@ -34,10 +35,12 @@ public class Servlet extends HttpServlet {
 
     }
 
+    //Get Method to get user's information from database.
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
     }
 
+    //Method to get all information from imput to send it to the database and make the correspondant transaction.
     protected void makeTransaction(HttpServletRequest request) throws ServletException, IOException, SQLException {
         String option = request.getParameter("option");
         String username = request.getParameter("userName");
@@ -91,14 +94,17 @@ public class Servlet extends HttpServlet {
 
     }
 
+    //Method to convert amount to double digits.
     protected Double getAmount(HttpServletRequest request){
         return Double.parseDouble(request.getParameter("Amount"));
     }
 
+   //Method to make sure amount is not empty. 
     protected boolean notEmpty(HttpServletRequest request){
         return request.getParameter("Amount") == null || request.getParameter("Amount").equals("");
     }
 
+    //method to make sure all the information required for a transaction is entered.
     protected boolean isTransferEmpty(HttpServletRequest request){
         String user = request.getParameter("username");
         String amount = request.getParameter("Amount");
@@ -106,6 +112,8 @@ public class Servlet extends HttpServlet {
         String empty = "";
         return !user.equals(empty) || !amount.equals(empty) || !email.equals(empty);
     }
+    
+    //Method to make sure all the information required for a loan is entered.
     protected boolean isLoanEmpty(HttpServletRequest request){
         String user = request.getParameter("userName");
         String amount = request.getParameter("Amount");

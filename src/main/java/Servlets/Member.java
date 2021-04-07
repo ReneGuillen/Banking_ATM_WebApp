@@ -1,9 +1,9 @@
 package simpleservlet;
 
+//Class to create a new member object in database.
 public class Member {
 
     private String userName, email, password;
-
     public Member(){
         super();
     }

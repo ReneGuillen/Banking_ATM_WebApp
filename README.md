@@ -17,7 +17,7 @@ Project was builded using HTML/CSS, JAVA/JSP, MYSQL.
 * Front_End = HTML and Css files.
 
 ## 3. Demo
-https://online-banking-atm.herokuapp.com/
+* https://online-banking-atm.herokuapp.com/
 
 The project has been a real learning experience from writing a program from scratch to utilizing features like databases
 to store/retrieve data and deploying a full project to public test.
